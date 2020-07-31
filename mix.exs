@@ -4,9 +4,12 @@ defmodule AnalyticsEx.MixProject do
   def project do
     [
       app: :analytics_ex,
+      description:
+        "A library tracking how many visitors a Phoenix-based application receives per day without collecting any data from the user",
       version: "0.1.0",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
+      package: package(),
       deps: deps()
     ]
   end
@@ -24,7 +27,15 @@ defmodule AnalyticsEx.MixProject do
     [
       {:ecto_sql, "~> 3.0"},
       {:postgrex, ">= 0.0.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:ex_doc, ">= 0.0.0", only: :dev, runtime: false}
+    ]
+  end
+
+  defp package() do
+    [
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/PJUllrich/analytics_ex"}
     ]
   end
 end
