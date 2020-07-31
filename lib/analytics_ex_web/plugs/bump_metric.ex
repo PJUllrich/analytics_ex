@@ -1,4 +1,4 @@
-defmodule AnalyticsExWeb.Plugs.BumpMetric do
+defmodule AnalyticsEx.Plugs.CountRequestsPerPath do
   import Plug.Conn
 
   def init(options), do: options
