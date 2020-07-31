@@ -39,7 +39,7 @@ defmodule AnalyticsEx.Metrics.Worker do
     date = Date.utc_today()
     query = from(m in AnalyticsEx.Metrics.Metric, update: [inc: [counter: ^counter]])
 
-    AnalyticsEx.Repo.insert!(
+    AnalyticsEx.Config.repo!().insert!(
       %AnalyticsEx.Metrics.Metric{date: date, path: path, counter: counter},
       on_conflict: query,
       conflict_target: [:date, :path]

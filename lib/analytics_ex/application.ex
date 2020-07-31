@@ -7,9 +7,10 @@ defmodule AnalyticsEx.Application do
 
   def start(_type, _args) do
     children = [
-      AnalyticsEx.Repo,
       AnalyticsEx.Metrics
     ]
+
+    AnalyticsEx.Config.ensure_repo()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
