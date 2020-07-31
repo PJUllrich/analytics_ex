@@ -1,6 +1,6 @@
 # AnalyticsEx
 
-A library trackiong how many visitors a [Phoenix](https://github.com/phoenixframework/phoenix)-based application receives per day without collecting any data from the user. It encapsulates the [Homemade Analytics](https://dashbit.co/blog/homemade-analytics-with-ecto-and-elixir) code of `José Valim` and simply counts the page-requests per path per day. The collected data is stored in a configurable [Ecto](https://github.com/elixir-ecto/ecto)-repository.
+A library tracking how many visitors a [Phoenix](https://github.com/phoenixframework/phoenix)-based application receives per day without collecting any data from the user. It encapsulates the [Homemade Analytics](https://dashbit.co/blog/homemade-analytics-with-ecto-and-elixir) code of `José Valim` and simply counts the page-requests per path per day. The collected data is stored in a configurable [Ecto](https://github.com/elixir-ecto/ecto)-repository.
 
 ## Installation
 
