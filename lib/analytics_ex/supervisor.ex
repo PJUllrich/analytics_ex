@@ -34,4 +34,18 @@ defmodule AnalyticsEx.Metrics do
 
     send(pid, :bump)
   end
+
+  def bump_with_uri(uri) when is_binary(uri) do
+    uri
+    |> URI.parse()
+    |> Map.get(:path)
+    |> case do
+      nil ->
+        {:error, :path_not_found}
+
+      path ->
+        bump(path)
+        :ok
+    end
+  end
 end
