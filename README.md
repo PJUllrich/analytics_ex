@@ -9,7 +9,7 @@ Add the following to your mix.exs and run mix deps.get:
 ```elixir
 def deps do
   [
-    {:analytics_ex, "~> 0.1.0"}
+    {:analytics_ex, "~> 0.1.1"}
   ]
 end
 ```
