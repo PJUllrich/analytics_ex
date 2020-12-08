@@ -42,6 +42,17 @@ In your `router.ex`, add the `AnalyticsEx.Plugs.CountRequestsPerPath`-Plug to an
   end
 ```
 
+### (Optional) Bump the metric manually in LiveViews
+The `CountRequestsPerPath`-Plug will not pick up requests if the [push_patch/2](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html?#push_patch/2) function is used since LiveView updates the url in the address bar without a full page reload, that is without calling the `CountRequestsPerPath`-Plug again. If you want to track these requests as well, you have to manually bump the path metric in the [handle_params/3](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html?#c:handle_params/3) callback:
+
+```elixir
+def handle_params(params, uri, socket) do
+  AnalyticsEx.Metrics.bump_with_uri(uri)
+
+  # Do other stuff here
+end
+```
+
 ## Thanks
 
 ### José Valim
