@@ -9,7 +9,7 @@ Add the following to your mix.exs and run mix deps.get:
 ```elixir
 def deps do
   [
-    {:analytics_ex, "~> 0.1.1"}
+    {:analytics_ex, "~> 0.2.1"}
   ]
 end
 ```
@@ -52,6 +52,29 @@ def handle_params(params, uri, socket) do
   # Do other stuff here
 end
 ```
+
+### (Optional) Add Analytics to LiveDashboard
+You can add an overview of your analytics to your [Phoenix LiveDashboard](https://github.com/phoenixframework/phoenix_live_dashboard) by adding the following code to the `live_dashboard` route in your `router.ex`:
+
+```elixir
+    live_dashboard "/dashboard",
+      additional_pages: [
+        {:analytics, AnalyticsEx.LiveDashboard.AnalyticsPage}
+      ]
+```
+
+Afterwards, you will have `daily`, `weekly`, and `monthly` summaries of your counted requests in the `Analytics` tab of your LiveDashboard.
+
+If you want to exclude paths from the analytics in the dashboard, simply add them to `router.ex`:
+
+```elixir
+    live_dashboard "/dashboard",
+      additional_pages: [
+        {:analytics, {AnalyticsEx.LiveDashboard.AnalyticsPage, ignore: ["/this-route", "/and-that-route-including-subpaths"]}
+      ]
+```
+
+You will then not see any paths which match your ignore-rules in the `Analytics` overview.
 
 ## Thanks
 
