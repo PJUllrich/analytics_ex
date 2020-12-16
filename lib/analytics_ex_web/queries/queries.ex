@@ -60,6 +60,7 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage.Queries do
   defp search(query, nil), do: query
 
   defp search(query, search_term) do
+    search_term = sanitize_sql_like(search_term)
     where(query, [m], ilike(m.path, ^search_term))
   end
 
@@ -85,5 +86,9 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage.Queries do
     # Convert the epoch date from seconds to microseconds
     # which is the timestamp that the ChartComponent expects
     {path, counter, date * 1_000_000}
+  end
+
+  defp sanitize_sql_like(string) do
+    String.replace(string, ~r/[("_"|"%"|"\\")]/, "")
   end
 end
