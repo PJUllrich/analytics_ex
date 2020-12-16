@@ -61,6 +61,7 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage.Queries do
 
   defp search(query, search_term) do
     search_term = sanitize_sql_like(search_term)
+    search_term = "%#{search_term}%"
     where(query, [m], ilike(m.path, ^search_term))
   end
 
