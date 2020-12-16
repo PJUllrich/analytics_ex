@@ -60,7 +60,7 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage.Queries do
   defp search(query, nil), do: query
 
   defp search(query, search_term) do
-    where(query, [m], fragment(" ? ~* ?", m.path, ^search_term))
+    where(query, [m], ilike(m.path, ^search_term))
   end
 
   defp get_and_shift_by(query, shift_by) do
