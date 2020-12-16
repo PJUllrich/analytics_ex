@@ -6,7 +6,7 @@ defmodule AnalyticsEx.MixProject do
       app: :analytics_ex,
       description:
         "A library tracking how many visitors a Phoenix-based application receives per day without collecting any data from the user",
-      version: "0.2.0",
+      version: "0.2.1",
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       package: package(),

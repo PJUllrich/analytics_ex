@@ -8,7 +8,7 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage do
 
   @impl true
   def mount(params, session, socket) do
-    ignored_paths = Map.get(session, :ignore, [])
+    ignored_paths = Keyword.get(session, :ignore, [])
     search_term = Map.get(params, "search")
 
     metrics = [
