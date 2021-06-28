@@ -2,6 +2,8 @@
 
 ## Heads up: This library is no longer actively maintained.
 > I built this library before [Plausible.io](https://plausible.io) became a thing and I switched to that wonderful service by now. You can still use this library and report issues and I'll happily fix them. However, please don't expect this library to work forever or have features added to it.
+> 
+> If you want to take over this library, please send me a message on [Twitter](https://twitter.com/pjullrich) or open an issue with your contact details here. I'll be happy to help you get started.
 
 A library tracking how many visitors a [Phoenix](https://github.com/phoenixframework/phoenix)-based application receives per day without collecting any data from the user. It encapsulates the [Homemade Analytics](https://dashbit.co/blog/homemade-analytics-with-ecto-and-elixir) code of `José Valim` and simply counts the page-requests per path per day. The collected data is stored in a configurable [Ecto](https://github.com/elixir-ecto/ecto)-repository.
 
