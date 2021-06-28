@@ -14,7 +14,7 @@ Add the following to your mix.exs and run mix deps.get:
 ```elixir
 def deps do
   [
-    {:analytics_ex, "~> 0.2.1"}
+    {:analytics_ex, "~> 0.2.2"}
   ]
 end
 ```
