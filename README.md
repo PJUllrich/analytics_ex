@@ -1,5 +1,8 @@
 # AnalyticsEx
 
+## Heads up: This library is no longer actively maintained.
+> I built this library before [Plausible.io](https://plausible.io) became a thing and I switched to that wonderful service by now. You can still use this library and report issues and I'll happily fix them. However, please don't expect this library to work forever or have features added to it.
+
 A library tracking how many visitors a [Phoenix](https://github.com/phoenixframework/phoenix)-based application receives per day without collecting any data from the user. It encapsulates the [Homemade Analytics](https://dashbit.co/blog/homemade-analytics-with-ecto-and-elixir) code of `José Valim` and simply counts the page-requests per path per day. The collected data is stored in a configurable [Ecto](https://github.com/elixir-ecto/ecto)-repository.
 
 ## Installation
@@ -40,7 +43,7 @@ In your `router.ex`, add the `AnalyticsEx.Plugs.CountRequestsPerPath`-Plug to an
     ...
     plug(AnalyticsEx.Plugs.CountRequestsPerPath)
   end
-```
+```****
 
 ### (Optional) Bump the metric manually in LiveViews
 The `CountRequestsPerPath`-Plug will not pick up requests if the [push_patch/2](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html?#push_patch/2) function is used since LiveView updates the url in the address bar without a full page reload, that is without calling the `CountRequestsPerPath`-Plug again. If you want to track these requests as well, you have to manually bump the path metric in the [handle_params/3](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.html?#c:handle_params/3) callback:
