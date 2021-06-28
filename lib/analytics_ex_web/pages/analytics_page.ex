@@ -4,7 +4,7 @@ defmodule AnalyticsEx.LiveDashboard.AnalyticsPage do
   alias Phoenix.LiveDashboard.ChartComponent
   alias AnalyticsEx.LiveDashboard.AnalyticsPage.Queries
 
-  @menu_text "Analyticst"
+  @menu_text "Analytics"
 
   @impl true
   def mount(params, session, socket) do
